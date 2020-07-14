@@ -38,7 +38,7 @@ pipeline {
 	  stage('Run Container on Dev Server'){
        steps
        {
-     sh 'docker run -p 8092:8080 -d --name Tomcat-server2 vijayshegde/mybootapp:2.0.0'
+     sh 'docker run -p 8093:8080 -d --name Tomcat-server3 vijayshegde/mybootapp:2.0.0'
      /* sshagent(['dev-server']) {
        sh "ssh -o StrictHostKeyChecking=no ec2-user@13.232.40.185 ${dockerRun}"
      } */
