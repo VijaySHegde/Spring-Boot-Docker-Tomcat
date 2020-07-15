@@ -38,7 +38,7 @@ pipeline {
    }
 	  stage('Approval'){
                 steps{
-                approval1 'APPROVAL'
+                approval1 'APPROVAL1'
                 }
                 }
 
