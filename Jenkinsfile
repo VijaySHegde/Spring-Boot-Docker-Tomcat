@@ -1,3 +1,4 @@
+@Library('shlib')_
 pipeline {
     agent any
  /*tools{
@@ -35,6 +36,12 @@ pipeline {
      sh 'docker push vijayshegde/mybootapp:2.0.0'
        }
    }
+	  stage('Approval'){
+                steps{
+                approval 'APPROVAL'
+                }
+                }
+
 	  stage('Run Container on Dev Server'){
        steps
        {
