@@ -35,14 +35,8 @@ pipeline {
      }
      sh 'docker push vijayshegde/mybootapp:2.0.0'
        }
-   }
-	  stage('Approval'){
-                steps{
-                approval1 'APPROVAL1'
-                }
-                }
-
-          
+   } 
+	 
         stage("blazemeter Performance test")
         {
             steps{
@@ -51,6 +45,14 @@ pipeline {
             performanceTest()
         }
         }
+	  /*
+	   stage('Approval'){
+                steps{
+                approval1 'APPROVAL1'
+                }
+                }
+
+          */
  
 	  stage('Run Container on Dev Server'){
        steps
