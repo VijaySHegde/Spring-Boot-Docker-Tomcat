@@ -42,14 +42,16 @@ pipeline {
                 }
                 }
 
-	 
-	  stage('performance test')
-       {
-           steps
-           {
-           performance 'performance_test'
-           }
-       }
+          
+        stage("blazemeter Performance test")
+        {
+            steps{
+                
+            
+            performanceTest()
+        }
+        }
+ 
 	  stage('Run Container on Dev Server'){
        steps
        {
