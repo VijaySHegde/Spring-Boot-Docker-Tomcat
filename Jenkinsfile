@@ -7,25 +7,26 @@ pipeline {
     } */
   stages {
  
-    stage('clean')
+    stage('clean and build')
             {
                 steps
                  { 
 	          sh 'mvn clean package'
+		  log_function("Build stage","war created")	 
                  }
 		 }
+	  
   stage('Build docker image')
 		{
 			steps
 			{
 			sh 'docker build -t vijayshegde/mybootapp:2.0.0 .'
+		        log_function("Built docker image","using docker file")
+			
 		}
 		}
 	  
-	 
-	
-	
-	stage('Push Docker Image'){
+	 stage('Push Docker Image'){
        steps
        {
      withCredentials([string(credentialsId: 'docker-pwd', variable: 'dockerHubPwd')]) {
@@ -36,16 +37,18 @@ pipeline {
      sh 'docker push vijayshegde/mybootapp:2.0.0'
        }
    } 
-	 
+	 /* 
         stage("blazemeter Performance test")
         {
             steps{
                 
             
             performanceTest()
+	    log_function("Blazemeter"," Test results are ready")
+	    
         }
         }
-	  /*
+	 
 	   stage('Approval'){
                 steps{
                 approval1 'APPROVAL1'
@@ -63,6 +66,12 @@ pipeline {
      } */
 	       
    }
+		  post {
+  failure
+  {
+  log_function("pipeline","failed")
+  }
+  }
 }
 	   
 
