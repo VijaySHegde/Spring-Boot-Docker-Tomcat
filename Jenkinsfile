@@ -42,6 +42,14 @@ pipeline {
                 }
                 }
 
+	 
+	  stage('performance test')
+       {
+           steps
+           {
+           performance 'performance_test'
+           }
+       }
 	  stage('Run Container on Dev Server'){
        steps
        {
