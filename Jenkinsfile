@@ -37,8 +37,8 @@ pipeline {
      sh 'docker push vijayshegde/mybootapp:2.0.0'
        }
    } 
-	 /* 
-        stage("blazemeter Performance test")
+	  
+      /*  stage("blazemeter Performance test")
         {
             steps{
                 
@@ -48,19 +48,19 @@ pipeline {
 	    
         }
         }
-	 
+	 */
 	   stage('Approval'){
                 steps{
                 approval1 'APPROVAL1'
                 }
                 }
 
-          */
+          
  
 	  stage('Run Container on Dev Server'){
        steps
        {
-     sh 'docker run -p 8095:8080 -d --name Tomcat-server5 vijayshegde/mybootapp:2.0.0'
+     sh 'docker run -p 8091:8080 -d --name Tomcat-server1 vijayshegde/mybootapp:2.0.0'
      /* sshagent(['dev-server']) {
        sh "ssh -o StrictHostKeyChecking=no ec2-user@13.232.40.185 ${dockerRun}"
      } */
