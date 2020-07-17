@@ -1,4 +1,4 @@
-# How to run SpringBoot application in Tomcat with Docker
+# How to run SpringBoot application in Tomcat with Docke
 
 **Note:** In order to run your Spring Boot app in standalone tomcat, please do make the code changes mentioned in [Deploying SpringBoot application in Standalone Tomcat](https://github.com/iamvickyav/Developer-Tips/blob/master/Deploy-SpringBootApp-In-Tomcat.md)
 
